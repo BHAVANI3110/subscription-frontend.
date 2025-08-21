@@ -1,0 +1,43 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="dashboard-body">
+  <header class="topbar">
+    <h1 class="dashboard-title">⚙️ Settings</h1>
+    <nav class="nav-links">
+      <a href="dashboard.html" class="link">Dashboard</a>
+      <a href="settings.html" class="link active">Settings</a>
+      <a href="login.html" class="link" id="logoutLink">Logout</a>
+    </nav>
+  </header>
+
+  <section class="form-container">
+    <h2>Reminder Preferences</h2>
+    <form id="settingsForm">
+      <label class="switch-row">
+        <span>Enable in-app reminders</span>
+        <input type="checkbox" id="remindersEnabled"/>
+      </label>
+
+      <label class="switch-row">
+        <span>Days before billing to warn</span>
+        <input type="number" id="reminderDays" min="1" max="30" value="7"/>
+      </label>
+
+      <button type="submit" class="btn">Save Settings</button>
+    </form>
+
+    <p class="note">
+      Note: Pure frontend cannot send real emails.  
+      These reminders show as banners on the dashboard based on due dates.
+    </p>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>

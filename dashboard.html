@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body class="dashboard-body">
+  <header class="topbar">
+    <h1 class="dashboard-title">📊 Subscription Dashboard</h1>
+    <nav class="nav-links">
+      <a href="dashboard.html" class="link active">Dashboard</a>
+      <a href="settings.html" class="link">Settings</a>
+      <a href="login.html" class="link" id="logoutLink">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Upcoming banner (auto-filled) -->
+  <div id="upcomingBanner" class="banner hidden"></div>
+
+  <!-- Summary Cards (auto-filled by JS) -->
+  <section class="card-container" id="summaryCards">
+    <!-- dynamic cards -->
+  </section>
+
+  <!-- Controls: Search + Filter -->
+  <section class="toolbar">
+    <input id="searchInput" class="input" placeholder="Search by service (e.g., Netflix)"/>
+    <select id="filterSelect" class="input">
+      <option value="All">All</option>
+      <option value="Active">Active</option>
+      <option value="Expired">Expired</option>
+    </select>
+  </section>
+
+  <!-- Add / Edit form -->
+  <section class="form-container">
+    <h2 id="formTitle">Add New Subscription</h2>
+    <form id="subscriptionForm">
+      <input type="text" id="service" placeholder="Service Name" required />
+      <input type="number" id="amount" placeholder="Amount (₹)" required />
+      <input type="date" id="date" required />
+      <select id="status" required>
+        <option value="Active">Active</option>
+        <option value="Expired">Expired</option>
+      </select>
+      <button type="submit" class="btn" id="submitBtn">Add</button>
+      <button type="button" class="btn btn-secondary hidden" id="cancelEditBtn">Cancel Edit</button>
+    </form>
+  </section>
+
+  <!-- Data Table -->
+  <table id="subscriptionTable">
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Amount</th>
+        <th>Billing Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody><!-- dynamic rows --></tbody>
+  </table>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+

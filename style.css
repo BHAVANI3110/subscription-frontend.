@@ -1,0 +1,133 @@
+/* ============ Base Reset ============ */
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: "Segoe UI", Arial, sans-serif; color: #333; }
+.hidden { display: none !important; }
+
+/* ============ Buttons / Inputs ============ */
+.input {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  outline: none;
+  transition: box-shadow .2s, transform .1s;
+  background: #fff;
+}
+.input:focus { box-shadow: 0 0 0 3px rgba(0,123,255,.15); transform: translateY(-1px); }
+
+.btn {
+  background: linear-gradient(135deg, #ff5e62, #ff9966);
+  color: #fff; border: none; padding: 10px 16px;
+  border-radius: 10px; cursor: pointer;
+  transition: transform .15s, box-shadow .2s, opacity .2s;
+}
+.btn:hover { transform: translateY(-1px); box-shadow: 0 8px 18px rgba(0,0,0,.18); }
+.btn:active { transform: translateY(0); }
+.btn-secondary { background: #6c757d; }
+.btn-secondary:hover { box-shadow: 0 8px 18px rgba(108,117,125,.3); }
+
+/* ============ Login ============ */
+.login-body {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #ff9966, #ff5e62, #f9d423);
+  background-size: 200% 200%;
+  animation: bgAnim 10s ease-in-out infinite;
+}
+@keyframes bgAnim {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.login-card {
+  width: 320px; background: #fff; padding: 28px; border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.25); text-align: center;
+  animation: floatIn .6s ease forwards; transform: translateY(10px); opacity: 0;
+}
+.login-title { margin-bottom: 14px; }
+.login-card input { width: 100%; margin: 10px 0; }
+
+/* ============ Dashboard / Settings Shell ============ */
+.dashboard-body { background: #f0f2f5; min-height: 100vh; padding-bottom: 40px; }
+.topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 20px; background: #ffffff; position: sticky; top: 0; z-index: 10;
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+}
+.dashboard-title { margin: 0; font-size: 28px; letter-spacing: .3px; }
+.nav-links .link {
+  margin-left: 14px; text-decoration: none; color: #555; padding: 8px 12px; border-radius: 10px;
+}
+.nav-links .link:hover { background: #f2f2f2; }
+.link.active { background: #e7f1ff; color: #007bff; }
+
+.banner {
+  max-width: 1100px; margin: 16px auto 0; padding: 12px 16px;
+  border-radius: 14px; background: #fff7e6; color: #8a5200;
+  border: 1px solid #ffe0b2; box-shadow: 0 6px 16px rgba(0,0,0,.06);
+}
+
+/* ============ Summary Cards ============ */
+.card-container {
+  max-width: 1100px; margin: 18px auto; display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px;
+  padding: 0 14px;
+}
+.sub-card {
+  padding: 18px; border-radius: 18px; color: #fff; text-align: center;
+  box-shadow: 0 10px 22px rgba(0,0,0,.18);
+  transition: transform .25s, box-shadow .25s; animation: floatIn .6s ease both;
+}
+.sub-card:hover { transform: translateY(-6px); box-shadow: 0 16px 34px rgba(0,0,0,.25); }
+.sub-card h2 { margin: 0 0 6px; }
+.netflix { background: linear-gradient(135deg, #113ccf, #5b73ff); }
+.spotify { background: linear-gradient(135deg, #1db954, #1ed760); }
+.disney  { background: linear-gradient(135deg, #e50914, #ff2e63); }
+.badge { display: inline-block; padding: 4px 10px; border-radius: 999px; font-size: 12px; background: rgba(255,255,255,.2); }
+
+/* ============ Toolbar ============ */
+.toolbar {
+  max-width: 1100px; margin: 4px auto 16px; padding: 0 14px;
+  display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+}
+
+/* ============ Form Card ============ */
+.form-container {
+  background: #fff; max-width: 600px; margin: 0 auto 16px; padding: 16px;
+  border-radius: 16px; box-shadow: 0 8px 18px rgba(0,0,0,.12);
+}
+.form-container form { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.form-container input, .form-container select { min-width: 180px; }
+
+/* ============ Table ============ */
+#subscriptionTable {
+  width: 95%; max-width: 1100px; margin: 8px auto 30px; border-collapse: collapse; background: #fff;
+  border-radius: 16px; overflow: hidden; box-shadow: 0 8px 18px rgba(0,0,0,.12);
+}
+#subscriptionTable th, #subscriptionTable td {
+  padding: 12px; border-bottom: 1px solid #eee; text-align: center;
+}
+#subscriptionTable thead th { background: #007bff; color: #fff; }
+.actions { display: flex; gap: 8px; justify-content: center; }
+.action-btn {
+  padding: 6px 10px; border-radius: 8px; border: none; cursor: pointer; color: #fff;
+}
+.action-edit { background: #17a2b8; }
+.action-del  { background: #dc3545; }
+.action-edit:hover { opacity: .9; }
+.action-del:hover  { opacity: .9; }
+
+/* ============ Settings ============ */
+.switch-row {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 0; border-bottom: 1px dashed #eee;
+}
+.note { margin-top: 10px; color: #666; font-size: 14px; }
+
+/* ============ Animations ============ */
+@keyframes floatIn {
+  from { transform: translateY(16px); opacity: 0; }
+  to   { transform: translateY(0);   opacity: 1; }
+}
+
+
+
+ 
