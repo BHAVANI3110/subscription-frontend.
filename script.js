@@ -1,6 +1,4 @@
-/**********************
- * Simple Frontend Auth
- **********************/
+
 document.addEventListener("DOMContentLoaded", () => {
   const loginForm = document.getElementById("loginForm");
   const logoutLink = document.getElementById("logoutLink");
@@ -11,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const u = document.getElementById("username").value.trim();
       const p = document.getElementById("password").value.trim();
       if (u === "vsb" && p === "1111") {
-        // (Optional) remember logged in state
+    
         localStorage.setItem("loggedIn", "1");
         window.location.href = "dashboard.html";
       } else {
@@ -26,18 +24,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // If you want to force login before dashboard:
-  // if (location.pathname.endsWith("dashboard.html") && localStorage.getItem("loggedIn") !== "1") {
-  //   location.href = "login.html";
-  // }
+ 
 
   initDashboard();
   initSettings();
 });
 
-/*****************************
- * Local Storage & Data Model
- *****************************/
 const SUBS_KEY = "subs:data";
 const SETTINGS_KEY = "subs:settings";
 
@@ -54,7 +46,7 @@ function getSubs() {
     const saved = JSON.parse(localStorage.getItem(SUBS_KEY));
     if (Array.isArray(saved)) return saved;
   } catch {}
-  // default seed data
+  
   const seed = [
     { service: "Netflix", amount: 499, date: "2025-09-10", status: "Active" },
     { service: "Spotify", amount: 199, date: "2025-09-05", status: "Active" },
@@ -65,12 +57,10 @@ function getSubs() {
 }
 function saveSubs(arr) { localStorage.setItem(SUBS_KEY, JSON.stringify(arr)); }
 
-/*****************
- * Dashboard page
- *****************/
+
 function initDashboard() {
   const table = document.getElementById("subscriptionTable");
-  if (!table) return; // not on dashboard
+  if (!table) return; 
 
   const tbody = table.querySelector("tbody");
   const form = document.getElementById("subscriptionForm");
@@ -86,7 +76,7 @@ function initDashboard() {
   let editingIndex = -1;
 
   function renderCards() {
-    // show 3 cards (Netflix/Spotify/Disney) if they exist; fallback to totals
+    
     const total = subs.length;
     const active = subs.filter(s => s.status === "Active").length;
     const expired = subs.filter(s => s.status === "Expired").length;
@@ -277,4 +267,5 @@ function initSettings() {
     alert("Settings saved!");
   });
 }
+
 
