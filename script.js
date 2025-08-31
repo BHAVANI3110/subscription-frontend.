@@ -163,10 +163,10 @@ function initDashboard() {
     renderUpcomingBanner();
   }
 
-  // Initial paint
+ 
   rerender();
 
-  // Add / Edit submit
+ 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     const service = document.getElementById("service").value.trim();
@@ -192,7 +192,7 @@ function initDashboard() {
     rerender();
   });
 
-  // Cancel edit
+ 
   cancelEditBtn.addEventListener("click", () => {
     editingIndex = -1;
     form.reset();
@@ -201,13 +201,12 @@ function initDashboard() {
     cancelEditBtn.classList.add("hidden");
   });
 
-  // Row actions (edit/delete)
   tbody.addEventListener("click", (e) => {
     const btn = e.target.closest("button");
     if (!btn) return;
     const idx = Number(btn.dataset.idx);
-    const item = applyFilters(subs)[idx]; // idx in filtered list
-    // Need actual index in subs:
+    const item = applyFilters(subs)[idx]; 
+  
     const realIndex = subs.findIndex(s =>
       s.service === item.service &&
       String(s.amount) === String(item.amount) &&
@@ -238,14 +237,12 @@ function initDashboard() {
     }
   });
 
-  // Search & Filter events
+ 
   searchInput.addEventListener("input", renderTable);
   filterSelect.addEventListener("change", renderTable);
 }
 
-/****************
- * Settings page
- ****************/
+
 function initSettings() {
   const form = document.getElementById("settingsForm");
   if (!form) return;
@@ -253,7 +250,6 @@ function initSettings() {
   const remindersEnabled = document.getElementById("remindersEnabled");
   const reminderDays = document.getElementById("reminderDays");
 
-  // load
   const s = getSettings();
   remindersEnabled.checked = !!s.remindersEnabled;
   reminderDays.value = Number(s.reminderDays) || 7;
@@ -267,5 +263,6 @@ function initSettings() {
     alert("Settings saved!");
   });
 }
+
 
 
